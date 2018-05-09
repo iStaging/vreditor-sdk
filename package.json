@@ -1,7 +1,7 @@
 {
   "name": "vreditor-sdk",
-  "version": "1.0.0",
-  "description": "A Vue.js project",
+  "version": "1.0.1",
+  "description": "VREditor sdk help you to create and edit your VR content more easily.",
   "author": "kevin.hu <>",
   "private": false,
   "scripts": {
