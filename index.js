@@ -1,8 +1,5 @@
-// vreditor-sdk need to have aframe first.
-// ```
-// npm install aframe vreditor-sdk --save
-// ```
-// Or use yarn. After you install, import vreditor sdk's js, css. Check the sample.
+// VREditor sdk need to have aframe first.
+// Then import vreditor sdk's js, css.
 
 import 'aframe'
 // import 'vreditor-sdk'

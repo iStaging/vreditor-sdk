@@ -1,72 +1,87 @@
-# VRMaker
+# VREditor sdk
 
-VRMaker js sdk help you to create your 360 panorama viewer more easily by aframe or krpano.
+VREditor sdk help you to create and edit your VR content more easily.
 
 ## documation
 [https://istaging.gitbook.io/vr-maker-sdk](https://istaging.gitbook.io/vr-maker-sdk)
 
-- viewer
-  - KrpanoViewer (recommend)
-    - vr mode
-    - auto rotation
-    - change animation
-    - support cubemap
-  - AframeViewer
-    - vr mode
-    - auto rotation
+- vreditor
+  - panoCollection
+    - CRUD
+    - copy
+    - preview
+  - panorama
+    - CRUD
+    - sort
+    - search
+  - marker
+    - point
+    - tag
+    - memo
+    - panorama default view
+  - language
+    - en
+    - zh-cn
 
 ## How to use
 
 ### ES6:
 
 ``` bash
-npm install vrmaker
-import VRMaker from 'vrmaker'
-
-// init krpano viewer (recommended)
-new VRMaker.krpanoViewer()
-...
-
-// init aframe viewer
-new VRMaker.AframeViewer()
-...
-
-// check more in documation or examples, dev folder
+npm install vreditor-sdk --save (yarn)
 ```
 
-### Use cdn:
-
 ``` bash
-// include script
-<script src="https://www.istaging.com/sdk/vrmaker.js">
+// Before use vreditor-sdk, you need to have aframe first.
+// ex: `npm install aframe --save`
+import 'aframe'
 
-// init krpano viewer (recommended)
-new VRMaker.krpanoViewer()
+// import vreditor-sdk js, css.
+import 'vreditor-sdk'
+import 'vreditor-sdk/dist/vreditor-sdk.css'
+
+var app = new VREditor()
+
+// Init with your token (login istaging service to get the token).
+// We support 'en' and 'zh-cn' now.
+app.init({
+  el: '#vreditor-sdk',
+  lang: 'en'
+})
 ...
+// Everything is ready by your token, enjoy.
 
-// init aframe viewer
-new VRMaker.AframeViewer()
-...
-
-// check more in documation or examples, dev folder
+// Check more by clone and install it `npm run dev`.
 ```
 
-Warning: use aframe will not support change animation and cubemap.
-
-## Work with istaging vrmaker solution which can upload your panorama with cubemap, auto hotspot, edit your marker like point, tag..etc. Get the data from vrmaker backend server.
-Use node express sample server to get the access key to upload your panoramas by vrmaker backend server api and init the data by krpano or aframe.
-Check in the examples folder.
+### Use static file by cdn:
 
 ``` bash
-npm start
+// in .html file.
+<head>
+  <link href="../dist/vreditor-sdk.css" rel="stylesheet"></link>
+</head>
+
+<body>
+  <div id="vreditor-sdk"></div>
+
+  <script type="text/javascript" src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+  <script type="text/javascript" src="../dist/vreditor-sdk.js"></script>
+  <script type="text/javascript" src="./index.js"></script>
+</body>
 ```
 
-## If you only want to use vrmaker 360 viewer..
-Following the data structure, you can also only use your own data without istaging api to create 360 viewer.
-Check in the dev folder.
-
 ``` bash
-npm run dev
+// In .js file.
+var app = new VREditor()
+
+// Init with your token (login istaging service to get the token).
+// We support 'en' and 'zh-cn' now.
+app.init({
+  el: '#vreditor-sdk',
+  lang: 'zh-cn'
+})
+// Check more by clone and install it `npm start`.
 ```
 
 # Thanks
