@@ -2,7 +2,7 @@
   "name": "vreditor-sdk",
   "version": "1.0.1",
   "description": "VREditor sdk help you to create and edit your VR content more easily.",
-  "author": "kevin.hu <>",
+  "author": "kevin.hu <>, jason.tseng <jason@staging.com.tw>",
   "private": false,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
