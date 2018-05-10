@@ -1,6 +1,6 @@
 {
   "name": "vreditor-sdk",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "VREditor sdk help you to create and edit your VR content more easily.",
   "author": "kevin.hu <>, jason.tseng <jason@staging.com.tw>",
   "private": false,
