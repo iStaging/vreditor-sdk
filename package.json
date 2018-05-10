@@ -1,9 +1,18 @@
 {
   "name": "vreditor-sdk",
   "version": "1.0.3",
+  "keywords": [
+    "istaging",
+    "vreditor",
+    "aframe",
+    "panorama",
+    "VR"
+  ],
   "description": "VREditor sdk help you to create and edit your VR content more easily.",
-  "author": "kevin.hu <>, jason.tseng <jason@staging.com.tw>",
+  "author": "kevin.hu <kevin.hu@staging.com.tw>, jason.tseng <jason@staging.com.tw>, alex <alex@staging.com.tw>",
+  "license": "MIT",
   "private": false,
+  "homepage": "https://istaging.gitbook.io/vr-maker-sdk",
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "node examples/app.js"
@@ -13,9 +22,7 @@
     "vrmaker": "^1.0.1",
     "vue": "^2.5.16",
     "vue-i18n": "^7.6.0",
-    "vue-router": "^3.0.1",
-    "vuedraggable": "^2.16.0",
-    "vuex-router-sync": "^5.0.0"
+    "vuedraggable": "^2.16.0"
   },
   "devDependencies": {
     "aframe": "^0.7.1",
