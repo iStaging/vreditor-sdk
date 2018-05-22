@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset=utf-8>
+  <title>iStaging vreditor-sdk example</title>
+  <link href="/dist/vreditor-sdk.css" rel="stylesheet"></link>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100vw;
+      flex-direction: column;
+    }
+    .text-container {
+      text-align: center;
+      max-width: 700px;
+      margin: 20px 0;
+    }
+    .title {
+      font-size: 20px;
+	    font-weight: 500;
+      letter-spacing: 0;
+      font-family: PingFangTC;
+      border-bottom: solid 1px #979797;
+      max-width: 400px;
+      margin: auto;
+    }
+    .desc {
+      text-align: left;
+      font-family: PingFangTC;
+    	font-size: 16px;
+    	font-weight: 500;
+    	letter-spacing: 0;
+    }
+    .container {
+      width: 700px;
+      height: 700px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="text-container">
+    <p>
+      <a href="/zh-cn/index.html">簡中</a>
+      /
+      <a href="/en/index.html">英文</a>
+    </p>
+    <p class="title">
+      Welcome to VR VR Editor-SDK
+    </p>
+    <p class="desc">
+      Here is an examples that using js, css, with backend nodejs server to build VR Editor.
+      Change the account/password you signup in the config file and init it, VR Editor-SDK will work automatically.
+      Note: You should use aframe at first, and beware the sdk container should has at least 700px width and height.
+    </p>
+  </div>
+  <div class="container">
+    <div id="vreditor-sdk"></div>
+  </div>
+  <script type="text/javascript" src="https://aframe.io/releases/0.7.1/aframe.min.js"></script>
+  <script type="text/javascript" src="/dist/vreditor-sdk.js"></script>
+  <script type="text/javascript" src="./index.js"></script>
+</body>
+
+</html>

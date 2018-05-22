@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset=utf-8>
+  <title>iStaging vreditor-sdk example</title>
+  <link href="/dist/vreditor-sdk.css" rel="stylesheet"></link>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100vw;
+      flex-direction: column;
+    }
+    .text-container {
+      text-align: center;
+      max-width: 700px;
+      margin: 20px 0;
+    }
+    .title {
+      font-size: 20px;
+	    font-weight: 500;
+      letter-spacing: 0;
+      font-family: PingFangTC;
+      border-bottom: solid 1px #979797;
+      max-width: 400px;
+      margin: auto;
+    }
+    .desc {
+      text-align: left;
+      font-family: PingFangTC;
+    	font-size: 16px;
+    	font-weight: 500;
+    	letter-spacing: 0;
+    }
+    .container {
+      width: 900px;
+      height: 700px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="text-container">
+    <p>
+      <a href="/zh-cn/index.html">簡中</a>
+      /
+      <a href="/en/index.html">英文</a>
+    </p>
+    <p class="title">
+      歡迎使用VR Editor-SDK
+    </p>
+    <p class="desc">
+      在這裡為您示範，如何使用js、css檔案結合後端nodejs服務建立一個VR Editor。
+      在後端nodejs服務中帶入您註冊時的帳號密碼(config檔案)並且初始化，VREditor-SDK即可運行在您希望的網頁中。
+      提醒您，您需要先行安裝aframe，並且SDK container 的長寬至少需要700px。
+  </p>
+  </div>
+  <div class="container">
+    <div id="vreditor-sdk"></div>
+  </div>
+  <script type="text/javascript" src="https://aframe.io/releases/0.7.1/aframe.min.js"></script>
+  <script type="text/javascript" src="/dist/vreditor-sdk.js"></script>
+  <script type="text/javascript" src="./index.js"></script>
+</body>
+
+</html>

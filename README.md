@@ -1,6 +1,6 @@
 # VREditor sdk
 
-VREditor sdk help you to create and edit your VR content more easily.
+VREditor sdk is a full site service which help you to create and edit your VR content more easily.
 
 ## documation
 [https://istaging.gitbook.io/vr-maker-sdk](https://istaging.gitbook.io/vr-maker-sdk)
@@ -18,16 +18,21 @@ VREditor sdk help you to create and edit your VR content more easily.
     - point
     - tag
     - memo
+    - product tag
     - panorama default view
+    - floorplan
   - language
     - en
     - zh-cn
 
 ## How to use
+Clone the sample nodejs server, change the account you signup in istaging website and start it, that's all.
+(Also, you can integrate api to your own server, check the api documation.)
 
 ### ES6:
 
 ``` bash
+// you need server to communicate istaging service first.
 npm install vreditor-sdk --save (yarn)
 ```
 
@@ -42,16 +47,15 @@ import 'vreditor-sdk/dist/vreditor-sdk.css'
 
 var app = new VREditor()
 
-// Init with your token (login istaging service to get the token).
+// Point to your server, here we point to the sample node server.
 // We support 'en' and 'zh-cn' now.
 app.init({
+  serverURL: 'http://localhost:3000',
   el: '#vreditor-sdk',
   lang: 'en'
 })
 ...
-// Everything is ready by your token, enjoy.
-
-// Check more by clone and install it `npm run dev`.
+// Everything is ready after you login, enjoy.
 ```
 
 ### Use static file by cdn:
@@ -75,13 +79,14 @@ app.init({
 // In .js file.
 var app = new VREditor()
 
-// Init with your token (login istaging service to get the token).
+// Point to your server, here we point to the sample node server.
 // We support 'en' and 'zh-cn' now.
 app.init({
+  serverURL: 'http://localhost:3000'
   el: '#vreditor-sdk',
   lang: 'zh-cn'
 })
-// Check more by clone and install it `npm start`.
+// Check more by clone and install it with `npm start`.
 ```
 
 # Thanks
