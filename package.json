@@ -1,6 +1,6 @@
 {
   "name": "vreditor-sdk",
-  "version": "1.0.6",
+  "version": "1.1.0",
   "keywords": [
     "istaging",
     "vreditor",
@@ -12,13 +12,19 @@
   "author": "kevin.hu <kevin.hu@staging.com.tw>, jason.tseng <jason@staging.com.tw>, alex <alex@staging.com.tw>",
   "license": "MIT",
   "private": false,
-  "homepage": "https://istaging.gitbook.io/vr-maker-sdk",
   "scripts": {
     "start": "node app.js"
   },
+  "homepage": "https://istaging.gitbook.io/vr-maker-sdk",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iStaging/vreditor-sdk.git"
+  },
   "dependencies": {
     "aframe-look-at-component": "^0.6.0",
-    "vrviewer-sdk": "^1.0.5",
+    "cropperjs": "1.3.3",
+    "pica": "^4.1.1",
+    "victor": "^1.1.0",
     "vue": "^2.5.16",
     "vue-i18n": "^7.6.0",
     "vuedraggable": "^2.16.0"

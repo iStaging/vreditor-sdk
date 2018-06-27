@@ -13,23 +13,23 @@ const PanoCollectionModule = class PanoCollectionModule {
             name
           }
         })
-        resolve(resp.data)
+        resolve(resp)
       } catch (error) {
         reject(error)
       }
     })
   }
 
-  get() {
+  getAll() {
     return new Promise(async (resolve, reject) => {
       try {
-        console.log('get panoCollection')
+        console.log('get panoCollections by user token')
 
         const resp = await axios({
           method: 'get',
           url: `/api/v1/panoCollection`,
         })
-        resolve(resp.data)
+        resolve(resp)
       } catch (error) {
         reject(error)
       }
@@ -39,42 +39,17 @@ const PanoCollectionModule = class PanoCollectionModule {
   update(id = '', options) {
     return new Promise(async (resolve, reject) => {
       try {
-        console.log('update panoCollection')
+        console.log('update panoCollection: ', id)
 
-        const { name, description, logoUrl } = options
         const resp = await axios({
           method: 'put',
           url: `/api/v1/panoCollection`,
           params: {
             id
           },
-          data: {
-            name,
-            description,
-            logoUrl
-          }
+          data: options
         })
-        resolve(resp.data)
-      } catch (error) {
-        reject(error)
-      }
-    })
-  }
-
-  clone(sourcePanoCollectionID = '', tenantUsername = '') {
-    return new Promise(async (resolve, reject) => {
-      try {
-        console.log('copy panoCollection')
-
-        const resp = await axios({
-          method: 'post',
-          url: `/api/v1/panoCollection/copy`,
-          data: {
-            sourcePanoCollectionID,
-            tenantUsername
-          }
-        })
-        resolve(resp.data)
+        resolve(resp)
       } catch (error) {
         reject(error)
       }
@@ -84,7 +59,7 @@ const PanoCollectionModule = class PanoCollectionModule {
   remove(id = '') {
     return new Promise(async (resolve, reject) => {
       try {
-        console.log('delete panoCollection')
+        console.log('delete panoCollection: ', id)
 
         const resp = await axios({
           method: 'delete',
@@ -93,7 +68,27 @@ const PanoCollectionModule = class PanoCollectionModule {
             id
           }
         })
-        resolve(resp.data)
+        resolve(resp)
+      } catch (error) {
+        reject(error)
+      }
+    })
+  }
+
+  clone(sourcePanoCollectionId = '', tenantUsername = '') {
+    return new Promise(async (resolve, reject) => {
+      try {
+        console.log('copy panoCollection: ', sourcePanoCollectionId, tenantUsername)
+
+        const resp = await axios({
+          method: 'post',
+          url: `/api/v1/panoCollection/copy`,
+          data: {
+            sourcePanoCollectionId,
+            tenantUsername
+          }
+        })
+        resolve(resp)
       } catch (error) {
         reject(error)
       }

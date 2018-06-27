@@ -1,12 +1,13 @@
 const router = require('express').Router()
 const HTTPStatus = require('http-status')
-const TenantModule = require('../module/tenant')
+const ProductTagModule = require('../module/productTag')
 
-const tenantModule = new TenantModule()
+const productTagModule = new ProductTagModule()
 
-router.post('/login', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
-    const resp = await tenantModule.login()
+    const productTagId = req.query.id
+    const resp = await productTagModule.getById(productTagId)
     res.status(resp.status).json(resp.data)
   } catch (error) {
     res.status(error.response.status).json(error.response.data)

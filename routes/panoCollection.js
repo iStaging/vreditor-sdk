@@ -5,30 +5,54 @@ const PanoCollectionModule = require('../module/panoCollection')
 const panoCollectionModule = new PanoCollectionModule()
 
 router.get('/', async (req, res) => {
-  const resp = await panoCollectionModule.get()
-  res.status(HTTPStatus.OK).json(resp)
+  try {
+    const resp = await panoCollectionModule.getAll()
+    res.status(resp.status).json(resp.data)
+  } catch (error) {
+    res.status(error.response.status).json(error.response.data)
+  }
 })
 
 router.post('/', async (req, res) => {
-  const panoCollectionName = req.body.name
-  const resp = await panoCollectionModule.create(panoCollectionName)
-  res.status(HTTPStatus.OK).json(resp)
+  try {
+    const panoCollectionName = req.body.name
+    const resp = await panoCollectionModule.create(panoCollectionName)
+    res.status(resp.status).json(resp.data)
+  } catch (error) {
+    res.status(error.response.status).json(error.response.data)
+  }
 })
 
 router.put('/', async (req, res) => {
-  const panoCollectionId = req.params.id
-  const options = {}
-  req.body.map(key => {
-    options[key] = req.body[key]
-  })
-  const resp = await panoCollectionModule.update(panoCollectionId, options)
-  res.status(HTTPStatus.OK).json(resp)
+  try {
+    const panoCollectionId = req.query.id
+    const options = req.body
+    const resp = await panoCollectionModule.update(panoCollectionId, options)
+    res.status(resp.status).json(resp.data)
+  } catch (error) {
+    res.status(error.response.status).json(error.response.data)
+  }
 })
 
 router.delete('/', async (req, res) => {
-  const panoCollectionId = req.params.id
-  const resp = await panoCollectionModule.remove(panoramaId)
-  res.status(HTTPStatus.OK).json(resp)
+  try {
+    const panoCollectionId = req.query.id
+    const resp = await panoCollectionModule.remove(panoCollectionId)
+    res.status(resp.status).json(resp.data)
+  } catch (error) {
+    res.status(error.response.status).json(error.response.data)
+  }
+})
+
+router.post('/copy', async (req, res) => {
+  try {
+    const sourcePanoCollectionId = req.body.sourcePanoCollectionId
+    const tenantUsername = req.body.tenantUsername
+    const resp = await panoCollectionModule.clone(sourcePanoCollectionId, tenantUsername)
+    res.status(resp.status).json(resp.data)
+  } catch (error) {
+    res.status(error.response.status).json(error.response.data)
+  }
 })
 
 module.exports = router

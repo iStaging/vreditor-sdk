@@ -13,13 +13,17 @@ const tenant = require('./routes/tenant')
 const panoCollection = require('./routes/panoCollection')
 const panorama = require('./routes/panorama')
 const marker = require('./routes/marker')
-const upload = require('./routes/upload')
+const customTag = require('./routes/customTag')
+const productTag = require('./routes/productTag')
+const credential = require('./routes/credential')
 
 app.use('/api/v1/tenant', tenant)
 app.use('/api/v1/panoCollection', panoCollection)
 app.use('/api/v1/panorama', panorama)
 app.use('/api/v1/marker', marker)
-app.use('/api/v1/upload', upload)
+app.use('/api/v1/customTag', customTag)
+app.use('/api/v1/productTag', productTag)
+app.use('/api/v1/credential', credential)
 
 app.get('/', (req, res) => {
   const url = `/en/index.html`
@@ -37,25 +41,16 @@ app.listen(process.env.PORT || 3000, async () => {
     istagingService
   } = require('./config')
 
-  // Point to istaging service.
+  // Point to istaging api service which setting in ./config.
   axios.defaults.baseURL = istagingService.url
 
-  const TenantModule = require('./module/tenant')
-  const tenantModule = new TenantModule()
-  const resp = await tenantModule.login()
-  // Add the token to header after login istaging service.
-  axios.defaults.headers['tenant-token'] = resp.tenantToken
-
-  // const PanoCollectionModule = require('./module/panoCollection')
-  // const panoCollectionModule = new PanoCollectionModule()
-  // const updatePanoCollection = await panoCollectionModule.update('pc_484ae9ab-7d11-4cd2-aa74-f4d0a2495573', {name: newPanoCollection1})
-  // const deletePanoCollection = await panoCollectionModule.remove('pc_484ae9ab-7d11-4cd2-aa74-f4d0a2495573', {name: newPanoCollection1})
-  // const panoCollection = await panoCollectionModule.get()
-  // console.log('panoCollection: ', panoCollection)
-  // const PanoramaModule = require('./module/panorama')
-  // const panoramaModule = new PanoramaModule()
-  // const panoramas = await panoramaModule.getById('pc_03118b8d-64be-43ec-88f0-c97e0287bcf8')
-  // const newPanoramas = await panoramaModule.create([{name: '1', downloadUrl: 'www.url.com'}])
-  // console.log('panoramas: ', panoramas)
-  // console.log('panoramas: ', panoramas)
+  try {
+    const TenantModule = require('./module/tenant')
+    const tenantModule = new TenantModule()
+    const resp = await tenantModule.login()
+    axios.defaults.headers.common['tenant-token'] = resp.data.tenantToken
+  } catch (error) {
+    console.log('You need to enter correct account to login iStaging service first.')
+    console.log(error)
+  }
 })

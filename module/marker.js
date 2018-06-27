@@ -1,73 +1,68 @@
 const axios = require('axios')
 
 const MarkerModule = class MarkerModule {
-  create(markers = []) {
+  create(panoramaId = '', markers = []) {
     return new Promise(async (resolve, reject) => {
       try {
-        console.log('create markers')
+        console.log('create markers: ', markers)
 
         const resp = await axios({
           method: 'post',
           url: `/api/v1/marker`,
           data: {
+            panoramaId,
             markers
           }
         })
-        resolve(resp.data)
+        resolve(resp)
       } catch (error) {
         reject(error)
       }
     })
   }
 
-  getById(panoId = '') {
+  getById(panoramaId = '') {
     return new Promise(async (resolve, reject) => {
       try {
-        console.log('get markers')
+        console.log('get markers: ', panoramaId)
 
         const resp = await axios({
           method: 'get',
           url: `/api/v1/marker`,
           params: {
-            panoId
+            panoramaId
           }
         })
-        resolve(resp.data)
+        resolve(resp)
       } catch (error) {
         reject(error)
       }
     })
   }
 
-  // update(id = '', panoramas = []) {
-  //   return new Promise(async (resolve, reject) => {
-  //     try {
-  //       console.log('update panorama')
-  //
-  //       const resp = await axios({
-  //         method: 'put',
-  //         url: `${istagingService.url}/api/v1/panorama`,
-  //         headers: {
-  //           'tenant-token': istagingService.token
-  //         },
-  //         params: {
-  //           id
-  //         },
-  //         data: {
-  //           panoramas
-  //         }
-  //       })
-  //       resolve(resp.data)
-  //     } catch (error) {
-  //       reject(error)
-  //     }
-  //   })
-  // }
+  update(markers = []) {
+    return new Promise(async (resolve, reject) => {
+      try {
+        console.log('update markers list: ', markers)
+
+        const resp = await axios({
+          method: 'put',
+          url: `/api/v1/marker`,
+          data: {
+            markers: markers
+          }
+        })
+        resolve(resp)
+      } catch (error) {
+        reject(error)
+      }
+    })
+  }
 
   remove(id = '') {
     return new Promise(async (resolve, reject) => {
       try {
-        console.log('delete marker')
+        console.log('delete marker: ', id)
 
         const resp = await axios({
           method: 'delete',
@@ -76,7 +71,7 @@ const MarkerModule = class MarkerModule {
             id
           }
         })
-        resolve(resp.data)
+        resolve(resp)
       } catch (error) {
         reject(error)
       }

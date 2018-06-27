@@ -4,7 +4,7 @@ const {
 } = require('../config')
 
 const TenantModule = class TenantModule {
-  login (options = {}) {
+  login () {
     return new Promise(async (resolve, reject) => {
       try {
         console.log('tenant login')
@@ -14,7 +14,7 @@ const TenantModule = class TenantModule {
           url: `/api/v1/tenant/login`,
           data: account
         })
-        resolve(resp.data)
+        resolve(resp)
       } catch (error) {
         reject(error)
       }

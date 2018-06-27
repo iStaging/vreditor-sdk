@@ -1,7 +1,7 @@
 const axios = require('axios')
 
 const PanoramaModule = class PanoramaModule {
-  create(panoramas = []) {
+  create(panoCollectionId = '', panoramas = []) {
     return new Promise(async (resolve, reject) => {
       try {
         console.log('create panoramas')
@@ -10,10 +10,11 @@ const PanoramaModule = class PanoramaModule {
           method: 'post',
           url: `/api/v1/panorama`,
           data: {
+            panoCollectionId,
             panoramas
           }
         })
-        resolve(resp.data)
+        resolve(resp)
       } catch (error) {
         reject(error)
       }
@@ -23,16 +24,18 @@ const PanoramaModule = class PanoramaModule {
   getById(id = '') {
     return new Promise(async (resolve, reject) => {
       try {
-        console.log('get panoramas')
+        console.log('get panoramas: ', id)
 
+        const type = 'panoCollection'
         const resp = await axios({
           method: 'get',
           url: `/api/v1/panorama`,
           params: {
-            id
+            id,
+            type
           }
         })
-        resolve(resp.data)
+        resolve(resp)
       } catch (error) {
         reject(error)
       }
@@ -42,7 +45,8 @@ const PanoramaModule = class PanoramaModule {
   update(id = '', panoramas = []) {
     return new Promise(async (resolve, reject) => {
       try {
-        console.log('update panorama')
+        console.log('update panorama: ', id)
+        console.log('update panorama list: ', panoramas)
 
         const resp = await axios({
           method: 'put',
@@ -54,7 +58,7 @@ const PanoramaModule = class PanoramaModule {
             panoramas
           }
         })
-        resolve(resp.data)
+        resolve(resp)
       } catch (error) {
         reject(error)
       }
@@ -64,7 +68,7 @@ const PanoramaModule = class PanoramaModule {
   remove(id = '') {
     return new Promise(async (resolve, reject) => {
       try {
-        console.log('delete panorama')
+        console.log('delete panorama: ', id)
 
         const resp = await axios({
           method: 'delete',
@@ -73,7 +77,7 @@ const PanoramaModule = class PanoramaModule {
             id
           }
         })
-        resolve(resp.data)
+        resolve(resp)
       } catch (error) {
         reject(error)
       }

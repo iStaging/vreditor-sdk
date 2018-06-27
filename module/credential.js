@@ -1,7 +1,7 @@
 const axios = require('axios')
 
 const CredentialModule = class CredentialModule {
-  getSignUrl (fileName = '', contentType = '') {
+  getSignUrl (type = '', fileName = '', contentType = '') {
     return new Promise(async (resolve, reject) => {
       try {
         console.log('get aliyun oss token')
@@ -10,11 +10,12 @@ const CredentialModule = class CredentialModule {
           method: 'get',
           url: `/api/v1/credential/signUrl`,
           params: {
+            type,
             fileName,
             contentType
           }
         })
-        resolve(resp.data)
+        resolve(resp)
       } catch (error) {
         reject(error)
       }
