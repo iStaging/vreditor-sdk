@@ -2,29 +2,13 @@
 
 VREditor sdk is a full site service which help you to create and edit your VR content more easily.
 
-## Documation
+## Resource
 
-[https://evs-doc-test.istaging.com.cn](https://evs-doc-test.istaging.com.cn)
+Tutorial: https://medium.com/@istaging_RD/vrmaker-sdk-create-your-virtual-tour-c6b4d796da29
+Document: https://evs-doc-test.istaging.com.cn
 
-- vreditor
-  - panoCollection
-    - CRUD
-    - copy
-    - preview
-  - panorama
-    - CRUD
-    - sort
-    - search
-  - marker
-    - point
-    - tag
-    - memo
-    - product tag
-    - panorama default view
-    - floorplan
-  - language
-    - en
-    - zh-cn
+vreditor-sdk github: https://github.com/iStaging/vreditor-sdk
+vrviewer-sdk github: https://github.com/iStaging/vrviewer-sdk
 
 ## Getting Started
 
