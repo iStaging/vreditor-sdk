@@ -24,15 +24,12 @@ vrviewer-sdk github: https://github.com/iStaging/vrviewer-sdk
 npm install vreditor-sdk (or use yarn)
 ```
 
-Run sample nodejs server, change the account you signup in istaging website and start it, that's all.
+// You need a server to communicate istaging service first.
+
+Run sample nodejs server, check it all.
 (Also, you can integrate api to your own server, check the api documation.)
 
 ### ES6:
-
-``` bash
-// You need a server to communicate istaging service first.
-// In the config/index.js, enter your account/password then start the sample node server.
-```
 
 ``` bash
 // Before use vreditor-sdk, you need to have aframe first.
@@ -45,6 +42,8 @@ import 'vreditor-sdk/dist/vreditor-sdk.css'
 
 // init VREditor
 VREditor.init({
+  username: '', // enter the tenant account username you signup.
+  password: '', // enter tenant account password you signup.
   clientURL: 'xxx',
   serverURL: 'http://localhost:3000', // Point to your backend server, here we point to the sample node server.
   el: '#vreditor-sdk',
@@ -74,6 +73,8 @@ VREditor.init({
 // In .js file.
 
 app.init({
+  username: '', // enter the tenant account username you signup.
+  password: '', // enter tenant account password you signup.
   clientURL: 'xxx',
   serverURL: 'http://localhost:3000', // Point to your server, here we point to the sample node server.
   el: '#vreditor-sdk',
