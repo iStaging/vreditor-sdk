@@ -1,10 +1,7 @@
 const axios = require('axios')
-const {
-  account
-} = require('../config')
 
 const TenantModule = class TenantModule {
-  login () {
+  login (username, password) {
     return new Promise(async (resolve, reject) => {
       try {
         console.log('tenant login')
@@ -12,7 +9,10 @@ const TenantModule = class TenantModule {
         const resp = await axios({
           method: 'post',
           url: `/api/v1/tenant/login`,
-          data: account
+          data: {
+            username,
+            password
+          }
         })
         resolve(resp)
       } catch (error) {
