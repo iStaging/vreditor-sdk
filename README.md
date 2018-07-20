@@ -44,10 +44,14 @@ import 'vreditor-sdk/dist/vreditor-sdk.css'
 VREditor.init({
   username: '', // enter the tenant account username you signup.
   password: '', // enter tenant account password you signup.
-  clientURL: 'xxx',
   serverURL: 'http://localhost:3000', // Point to your backend server, here we point to the sample node server.
   el: '#vreditor-sdk',
-  lang: 'en' // We support 'en' and 'zh-cn' now.
+  lang: 'en', // We support 'en' and 'zh-cn' now.
+  shouldGoToDetailsPage: true, // default false, if you only have one panoCollection, it will go to panoCollection detail page automatically.
+  viewerPreviewHost: {
+    url: 'xxx', // enter the website you host to make sure share function work.
+    previewInSdk: true // default false, open new window or inside sdk.
+  }
 })
 ...
 // Everything is ready, enjoy.
@@ -75,10 +79,14 @@ VREditor.init({
 app.init({
   username: '', // enter the tenant account username you signup.
   password: '', // enter tenant account password you signup.
-  clientURL: 'xxx',
   serverURL: 'http://localhost:3000', // Point to your server, here we point to the sample node server.
   el: '#vreditor-sdk',
-  lang: 'zh-cn' // We support 'en' and 'zh-cn' now.
+  lang: 'zh-cn', // We support 'en' and 'zh-cn' now.
+  shouldGoToDetailsPage: true, // default false, if you only have one panoCollection, it will go to panoCollection detail page automatically.
+  viewerPreviewHost: {
+    url: 'xxx', // enter the website you host to make sure share function work.
+    previewInSdk: true // default false, open new window or inside sdk.
+  }
 })
 ```
 
