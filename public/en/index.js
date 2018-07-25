@@ -1,10 +1,15 @@
 // Make sure you have already using aframe and vreditor-sdk js first.
 
 VREditor.init({
-  username: '', // enter the tenant account username you signup.
-  password: '', // enter tenant account password you signup.
-  clientURL: '', // enter the website you host to make sure share function work.
+  username: '',
+  password: '',
   serverURL: 'http://localhost:3000', // enter the api server you host to connect the node sample server.
   el: '#vreditor-sdk',
-  lang: 'zh-cn'
+  lang: 'en',
+  primaryColor: '#bcbdc1',
+  shouldGoToDetailsPage: true, // shouldGoToDetailsPage will auto go to panoCollection detail page if you have only one panoCollection
+  viewerPreviewHost: {
+    url: 'xxx', // enter the website you host to make sure share function work.
+    previewInSdk: true // defalt false
+  }
 })
