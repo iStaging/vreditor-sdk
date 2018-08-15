@@ -47,6 +47,50 @@ VREditor.init({
   serverURL: 'http://localhost:3000', // Point to your backend server, here we point to the sample node server.
   el: '#vreditor-sdk',
   lang: 'en', // We support 'en' and 'zh-cn' now.
+  primaryColor: '#bcbdc1',
+  defaultMarkerIcons: {
+    point: [{
+      name: 'leftArrow',
+      url: 'https://evs-prod.oss-cn-hangzhou.aliyuncs.com/static/iconTypes/left-arrow.png'
+    }, {
+      name: 'leftFrontArrow',
+      url: 'https://evs-prod.oss-cn-hangzhou.aliyuncs.com/static/iconTypes/left-front-arrow.png'
+    }, {
+      name: 'frontArrow',
+      url: 'https://evs-prod.oss-cn-hangzhou.aliyuncs.com/static/iconTypes/front-arrow.png'
+    }, {
+      name: 'rightFrontArrow',
+      url: 'https://evs-prod.oss-cn-hangzhou.aliyuncs.com/static/iconTypes/right-front-arrow.png'
+    }, {
+      name: 'rightArrow',
+      url: 'https://evs-prod.oss-cn-hangzhou.aliyuncs.com/static/iconTypes/right-arrow.png'
+    }, {
+      name: 'point',
+      url: 'https://evs-prod.oss-cn-hangzhou.aliyuncs.com/static/iconTypes/point.png'
+    }],
+    product: [{
+      name: 'product',
+      url: 'https://evs-prod.oss-cn-hangzhou.aliyuncs.com/static/iconTypes/product.png'
+    }],
+    tag: [{
+      name: 'tag',
+      url: 'https://evs-prod.oss-cn-hangzhou.aliyuncs.com/static/iconTypes/tag.png'
+    }],
+    memo: [{
+      name: 'test',
+      url: 'https://evs-prod.oss-cn-hangzhou.aliyuncs.com/static/iconTypes/left-arrow.png'
+    }, {
+      name: 'memo',
+      url: 'https://evs-prod.oss-cn-hangzhou.aliyuncs.com/static/iconTypes/memo.png'
+    }],
+    popup: [{
+      name: 'video',
+      url: 'https://evs-prod.oss-cn-hangzhou.aliyuncs.com/static/iconTypes/video.png'
+    }, {
+      name: 'link',
+      url: 'https://evs-prod.oss-cn-hangzhou.aliyuncs.com/static/iconTypes/link.png'
+    }]
+  },
   shouldGoToDetailsPage: true, // default false, if you only have one panoCollection, it will go to panoCollection detail page automatically.
   viewerPreviewHost: {
     url: 'xxx', // enter the website you host to make sure share function work.
@@ -82,6 +126,47 @@ app.init({
   serverURL: 'http://localhost:3000', // Point to your server, here we point to the sample node server.
   el: '#vreditor-sdk',
   lang: 'zh-cn', // We support 'en' and 'zh-cn' now.
+  primaryColor: '#bcbdc1',
+  defaultMarkerIcons: {
+    point: [{
+      name: 'leftArrow',
+      url: 'https://evs-prod.oss-cn-hangzhou.aliyuncs.com/static/iconTypes/left-arrow.png'
+    }, {
+      name: 'leftFrontArrow',
+      url: 'https://evs-prod.oss-cn-hangzhou.aliyuncs.com/static/iconTypes/left-front-arrow.png'
+    }, {
+      name: 'frontArrow',
+      url: 'https://evs-prod.oss-cn-hangzhou.aliyuncs.com/static/iconTypes/front-arrow.png'
+    }, {
+      name: 'rightFrontArrow',
+      url: 'https://evs-prod.oss-cn-hangzhou.aliyuncs.com/static/iconTypes/right-front-arrow.png'
+    }, {
+      name: 'rightArrow',
+      url: 'https://evs-prod.oss-cn-hangzhou.aliyuncs.com/static/iconTypes/right-arrow.png'
+    }, {
+      name: 'point',
+      url: 'https://evs-prod.oss-cn-hangzhou.aliyuncs.com/static/iconTypes/point.png'
+    }],
+    product: [{
+      name: 'product',
+      url: 'https://evs-prod.oss-cn-hangzhou.aliyuncs.com/static/iconTypes/product.png'
+    }],
+    tag: [{
+      name: 'tag',
+      url: 'https://evs-prod.oss-cn-hangzhou.aliyuncs.com/static/iconTypes/tag.png'
+    }],
+    memo: [{
+      name: 'memo',
+      url: 'https://evs-prod.oss-cn-hangzhou.aliyuncs.com/static/iconTypes/memo.png'
+    }],
+    popup: [{
+      name: 'video',
+      url: 'https://evs-prod.oss-cn-hangzhou.aliyuncs.com/static/iconTypes/video.png'
+    }, {
+      name: 'link',
+      url: 'https://evs-prod.oss-cn-hangzhou.aliyuncs.com/static/iconTypes/link.png'
+    }]
+  },
   shouldGoToDetailsPage: true, // default false, if you only have one panoCollection, it will go to panoCollection detail page automatically.
   viewerPreviewHost: {
     url: 'xxx', // enter the website you host to make sure share function work.
